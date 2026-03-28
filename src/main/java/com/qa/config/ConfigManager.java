@@ -67,6 +67,10 @@ public class ConfigManager {
     public static String get(String key) {
         String value = properties.getProperty(key);
         if (value == null) {
+            String envKey = key.toUpperCase().replace('.', '_').replace('-', '_');
+            value = System.getenv(envKey);
+        }
+        if (value == null) {
             throw new RuntimeException("Property '" + key + "' not found in configuration.");
         }
         return value.trim();
@@ -80,7 +84,12 @@ public class ConfigManager {
      * @return the property value or defaultValue
      */
     public static String get(String key, String defaultValue) {
-        return properties.getProperty(key, defaultValue).trim();
+        String value = properties.getProperty(key);
+        if (value == null) {
+            String envKey = key.toUpperCase().replace('.', '_').replace('-', '_');
+            value = System.getenv(envKey);
+        }
+        return value != null ? value.trim() : defaultValue;
     }
 
     /**
