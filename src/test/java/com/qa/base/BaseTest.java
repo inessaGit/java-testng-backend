@@ -37,10 +37,10 @@ public class BaseTest {
     private static final Logger log = LogManager.getLogger(BaseTest.class);
 
     /** Client for /posts operations on JSONPlaceholder. */
-    protected PostsApiClient postsClient;
+    protected static PostsApiClient postsClient;
 
     /** Client for /login and /register operations on ReqRes. */
-    protected UsersApiClient usersClient;
+    protected static UsersApiClient usersClient;
 
     /**
      * Runs once before the entire test suite.
