@@ -1,0 +1,34 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Regression Test Suite" verbose="1">
+
+    <test name="Posts - GET">
+        <classes>
+            <class name="com.qa.posts.GetPostsTest"/>
+        </classes>
+    </test>
+
+    <test name="Posts - Create">
+        <classes>
+            <class name="com.qa.posts.CreatePostTest"/>
+        </classes>
+    </test>
+
+    <test name="Posts - Update">
+        <classes>
+            <class name="com.qa.posts.UpdatePostTest"/>
+        </classes>
+    </test>
+
+    <test name="Posts - Delete">
+        <classes>
+            <class name="com.qa.posts.DeletePostTest"/>
+        </classes>
+    </test>
+
+    <test name="Auth">
+        <classes>
+            <class name="com.qa.users.AuthTest"/>
+        </classes>
+    </test>
+
+</suite>

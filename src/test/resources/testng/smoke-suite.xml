@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Smoke Test Suite" verbose="1">
+
+    <test name="Smoke Tests">
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="com.qa.posts.GetPostsTest"/>
+            <class name="com.qa.posts.CreatePostTest"/>
+            <class name="com.qa.posts.DeletePostTest"/>
+            <class name="com.qa.users.AuthTest"/>
+        </classes>
+    </test>
+
+</suite>
