@@ -27,13 +27,17 @@ public class UsersApiClient extends BaseApiClient {
     private static final String LOGIN_PATH    = "/login";
     private static final String REGISTER_PATH = "/register";
 
+    private final String apiKey;
+
     /**
      * Creates a UsersApiClient targeting the given base URL.
      *
      * @param baseUrl the base URL, e.g. "https://reqres.in/api"
+     * @param apiKey  the x-api-key value for ReqRes authentication (may be empty)
      */
-    public UsersApiClient(String baseUrl) {
+    public UsersApiClient(String baseUrl, String apiKey) {
         super(baseUrl);
+        this.apiKey = apiKey != null ? apiKey : "";
     }
 
     /**
@@ -57,6 +61,7 @@ public class UsersApiClient extends BaseApiClient {
         }
 
         return given(spec)
+                .header("x-api-key", apiKey)
                 .body(body)
                 .when()
                 .post(LOGIN_PATH)
@@ -84,6 +89,7 @@ public class UsersApiClient extends BaseApiClient {
         }
 
         return given(spec)
+                .header("x-api-key", apiKey)
                 .body(body)
                 .when()
                 .post(REGISTER_PATH)
