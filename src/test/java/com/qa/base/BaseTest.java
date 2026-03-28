@@ -61,8 +61,10 @@ public class BaseTest {
         log.info("JSONPlaceholder base URL : {}", jsonplaceholderBaseUrl);
         log.info("ReqRes base URL          : {}", reqresBaseUrl);
 
+        String reqresApiKey = ConfigManager.get("reqres.api.key", "");
+
         postsClient = new PostsApiClient(jsonplaceholderBaseUrl);
-        usersClient = new UsersApiClient(reqresBaseUrl);
+        usersClient = new UsersApiClient(reqresBaseUrl, reqresApiKey);
 
         log.info("API clients initialised successfully.");
     }
