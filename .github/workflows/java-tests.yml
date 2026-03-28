@@ -34,6 +34,8 @@ jobs:
         run: mvn clean compile -q
 
       - name: Run regression tests (CI environment)
+        env:
+          REQRES_API_KEY: ${{ secrets.REQRES_API_KEY }}
         run: mvn test -Denv=ci -DsuiteFile=src/test/resources/testng/regression-suite.xml
 
       - name: Upload Allure results artifact
